@@ -26,6 +26,28 @@ document.addEventListener("DOMContentLoaded", () => {
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
         `;
+        // Build participant list section
+        const participantsSection = document.createElement("div");
+        participantsSection.className = "participants-section";
+        const participantsTitle = document.createElement("p");
+        participantsTitle.className = "participants-title";
+        participantsTitle.innerHTML = `<strong>Participants (${details.participants.length}):</strong>`;
+        const participantsList = document.createElement("ul");
+        participantsList.className = "participants-list";
+        if (details.participants.length === 0) {
+          const li = document.createElement("li");
+            li.textContent = "No participants yet";
+            participantsList.appendChild(li);
+        } else {
+          details.participants.forEach(participantEmail => {
+            const li = document.createElement("li");
+            li.textContent = participantEmail;
+            participantsList.appendChild(li);
+          });
+        }
+        participantsSection.appendChild(participantsTitle);
+        participantsSection.appendChild(participantsList);
+        activityCard.appendChild(participantsSection);
 
         activitiesList.appendChild(activityCard);
 
@@ -62,6 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
         messageDiv.textContent = result.message;
         messageDiv.className = "success";
         signupForm.reset();
+        // Refresh activities so participant list updates
+        fetchActivities();
       } else {
         messageDiv.textContent = result.detail || "An error occurred";
         messageDiv.className = "error";
