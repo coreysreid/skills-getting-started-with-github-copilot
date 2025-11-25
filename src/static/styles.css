@@ -142,3 +142,74 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.participants-section {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.participants-title {
+  margin-bottom: 6px;
+  color: #1a237e;
+  font-size: 14px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.participants-list {
+  list-style: none; /* hide bullets */
+  margin-left: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.participants-list li {
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #c62828;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.delete-btn:hover {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+.delete-btn:focus-visible {
+  outline: 2px solid #b71c1c;
+  outline-offset: 2px;
+}
+
+#undo-btn {
+  margin-left: 10px;
+  background-color: #3949ab;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#undo-btn:hover {
+  background-color: #1a237e;
+}
